@@ -1,14 +1,36 @@
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CreatorHaven</title>
-  <link rel="manifest" href="/manifest.json" />
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CreatorHaven</title>
 
-  <!-- ✅ Simplified favicon path -->
-  <link rel="icon" type="image/png" href="/favicon.png" />
+    <!-- ✅ Favicon -->
+    <link rel="icon" type="image/png" href="/favicon.png" />
 
-  <meta
-    http-equiv="Content-Security-Policy"
-    content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' ws: wss: https://fcswlfrflhkecjogramb.supabase.co; font-src 'self'; object-src 'none'; media-src 'self';"
-  />
-</head>
+    <!-- ✅ Web App Manifest -->
+    <link rel="manifest" href="/manifest.json" />
+
+    <!-- ✅ Content Security Policy (Vercel + Supabase compatible) -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="
+        default-src 'self';
+        script-src 'self' 'unsafe-inline' 'unsafe-eval';
+        style-src 'self' 'unsafe-inline';
+        img-src 'self' data: blob:;
+        connect-src 'self' https://fcswlfrflhkecjogramb.supabase.co;
+        font-src 'self' data:;
+        object-src 'none';
+        base-uri 'self';
+      "
+    />
+  </head>
+
+  <body>
+    <div id="root"></div>
+
+    <!-- ✅ Entry Point -->
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
